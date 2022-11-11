@@ -12,7 +12,7 @@ function add2(n1: number, n2: number): number {
 
 
 ////// void 타입
-function printResult(num: number): void {
+function printResult_(num: number): void {
     console.log('Result: ' + num);
 }
 // function printResult(num: number): void
@@ -25,7 +25,7 @@ function printResult2(num: number): undefined {
 }
 // undefined는 실제 값을 반환하지 않을 때 return를 적음으로써 사용하기도 함
 
-console.log(printResult(add(4, 12)));
+console.log(printResult_(add(4, 12)));
 // 아무 것도 반환하지 않는 값이면 undefined 반환
 // undefined도 유효한 값임
 

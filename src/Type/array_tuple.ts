@@ -4,8 +4,8 @@ const exampleArray = {
     hobbies: ['Sports', 'Cooking']
 };
 
-let Activities: string[];   // 문자열들의 배열이다.
-Activities = ['Sports'];
+let Activities_: string[];   // 문자열들의 배열이다.
+Activities_ = ['Sports'];
 
 let ActivitiesAny: any[];   // 여러 타입의 배열이다.
 ActivitiesAny = ['Sports', 1];

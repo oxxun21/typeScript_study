@@ -1,6 +1,7 @@
+"use strict";
 ////// unknown 타입
-var userInput; // 무엇을 입력할지 모름, 어떤 값이든 할당할 수 있지만 any 와는 다름
-var userName;
+let userInput; // 무엇을 입력할지 모름, 어떤 값이든 할당할 수 있지만 any 와는 다름
+let userName;
 userInput = 5;
 userInput = 'Max';
 // userName = userInput;    unknown타입은 string에 할당할 수 없다고 오류 발생, any 타입이라면 오류 발생 X

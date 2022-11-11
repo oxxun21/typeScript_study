@@ -5,7 +5,7 @@
 type Combinable = number | string;
 type ConversionDescriptor = 'as-number' | 'as-text';
 
-function combineLiteral(
+function combineLiteral_(
     input1: Combinable, 
     input2:  Combinable,
     resultConversion: ConversionDescriptor
