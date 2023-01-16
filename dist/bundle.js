@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-/// <reference path="drag-drop-interfaces.ts" />
-/// <reference path="project-model.ts" />
-/// <reference path="project-state.ts" />
-/// <reference path="validation.ts" />
-/// <reference path="autobind-decorator.ts" />
+//// <reference path="drag-drop-interfaces.ts" />
+//// <reference path="project-model.ts" />
+//// <reference path="project-state.ts" />
+//// <reference path="validation.ts" />
+//// <reference path="autobind-decorator.ts" />
 // namespace 내에서 import 가능
 var App;
 (function (App) {

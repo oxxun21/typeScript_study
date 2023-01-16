@@ -1,11 +1,12 @@
-/// <reference path="drag-drop-interfaces.ts" />
-/// <reference path="project-model.ts" />
-/// <reference path="project-state.ts" />
-/// <reference path="validation.ts" />
-/// <reference path="autobind-decorator.ts" />
+//// <reference path="drag-drop-interfaces.ts" />
+//// <reference path="project-model.ts" />
+//// <reference path="project-state.ts" />
+//// <reference path="validation.ts" />
+//// <reference path="autobind-decorator.ts" />
 // namespace 내에서 import 가능
 
 namespace App {
+
 
 // Component Base Class
 abstract class Component<T extends HTMLElement, U extends HTMLElement> {
