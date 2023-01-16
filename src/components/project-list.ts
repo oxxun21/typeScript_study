@@ -1,22 +1,22 @@
-/// <reference path="base-component.ts" />
-/// <reference path="../decorators/autobind.ts" />
-/// <reference path="../state/project-state.ts" />
-/// <reference path="../models/drag-drop.ts" />
-/// <reference path="../models/project.ts" />
+import { DragTarget } from "../models/drag-drop.js";
+import { Project, ProjectStatus } from "../models/project.js";
+import { Component } from "./base-component.js";
+import { autobind } from "../decorators/autobind.js";
+import { projectState } from "../state/project-state.js";
+import { ProjectItem } from "./project-item.js";
 
-namespace App {
-  // ProjectList class
-  export class ProjectList extends Component<HTMLDivElement, HTMLElement>
-  implements DragTarget {
-  assignedProjects: Project[];
+// ProjectList class
+export class ProjectList extends Component<HTMLDivElement, HTMLElement>
+implements DragTarget {
+assignedProjects: Project[];
 
-  constructor(private type: 'active' | 'finished') {
-    super('project-list', 'app', false, `${type}-projects`);
-    this.assignedProjects = [];
+constructor(private type: 'active' | 'finished') {
+  super('project-list', 'app', false, `${type}-projects`);
+  this.assignedProjects = [];
 
-    this.configure();
-    this.renderContent();
-  }
+  this.configure();
+  this.renderContent();
+}
 
   @autobind
   dragOverHandler(event: DragEvent) {
@@ -68,6 +68,5 @@ namespace App {
     for (const prjItme of this.assignedProjects){
       new ProjectItem(this.element.querySelector('ul')!.id, prjItme);
     }
-  }
   }
 }
