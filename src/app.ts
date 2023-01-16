@@ -1,120 +1,11 @@
-// Drag & Drop Interfaces
-interface Draggable {
-  dragStartHandler(event: DragEvent): void;
-  dragEndHandler(event: DragEvent): void;
-}
+/// <reference path="drag-drop-interfaces.ts" />
+/// <reference path="project-model.ts" />
+/// <reference path="project-state.ts" />
+/// <reference path="validation.ts" />
+/// <reference path="autobind-decorator.ts" />
+// namespace 내에서 import 가능
 
-interface DragTarget {
-  dragOverHandler(event: DragEvent): void;
-  dropHandler(event: DragEvent): void;
-  dragLeaveHandler(event: DragEvent): void;
-}
-
-// Project Type
-enum ProjectStatus { Active, Finished }
-
-class Project {
-  constructor(
-    public id: string, 
-    public title: string, 
-    public description: string, 
-    public people: number, 
-    public status: ProjectStatus
-  ){}
-}
-
-// Project State Managerment 
-type Listener<T> = (item: T[]) => void;
-
-class State<T> {
-  protected listeners: Listener<T>[] = [];
-
-  addListener(listenerFn: Listener<T>) {
-    this.listeners.push(listenerFn);
-  }
-}
-
-class ProjectState extends State<Project> {
-  private projects: Project[] = [];
-  private static instance: ProjectState;
-
-  private constructor() {
-    super();
-  }
-
-  static getInstance() {
-    if (this.instance) {
-      return this.instance;
-    }
-    this.instance = new ProjectState();
-    return this.instance;
-  }
-
-  addProject(title: string, description: string, numOfPeople: number) {
-    const newProject = new Project(Math.random().toString(), title, description, numOfPeople, ProjectStatus.Active);
-    this.projects.push(newProject);
-    this.updateListeners();
-  }
-
-  moveProject(projectId: string, newStatus: ProjectStatus) {
-    const project = this.projects.find(prj => prj.id === projectId);
-    if(project && project.status !== newStatus){
-      project.status = newStatus;
-      this.updateListeners();
-    }
-  }
-
-  private updateListeners() {
-    for (const listenerFn of this.listeners) {
-      listenerFn(this.projects.slice());
-    }
-  }
-}
-
-const projectState = ProjectState.getInstance();
-
-// Validation
-interface Validatable {
-  value: string | number;
-  required?: boolean;
-  minLength?: number;
-  maxLength?: number;
-  min?: number;
-  max?: number;
-}
-
-function validate(ValidatableInput: Validatable) {
-  let isValid = true;
-  if (ValidatableInput.required) {
-      isValid = isValid && ValidatableInput.value.toString().trim().length !== 0;
-  }
-  if (ValidatableInput.minLength != null && typeof ValidatableInput.value === 'string') {
-    isValid = isValid && ValidatableInput.value.length >= ValidatableInput.minLength;
-  }
-  if (ValidatableInput.maxLength != null && typeof ValidatableInput.value === 'string') {
-    isValid = isValid && ValidatableInput.value.length <= ValidatableInput.maxLength;
-  }
-  if (ValidatableInput.min != null && typeof ValidatableInput.value === 'number') {
-    isValid = isValid && ValidatableInput.value >= ValidatableInput.min;
-  }
-  if (ValidatableInput.max != null && typeof ValidatableInput.value === 'number') {
-    isValid = isValid && ValidatableInput.value <= ValidatableInput.max;
-  }
-  return isValid;
-}
-
-// autobind decorator
-function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
-  const originaMethod = descriptor.value;
-  const adjDescriptor: PropertyDescriptor = {
-    configurable: true,
-    get() {
-      const boundFn = originaMethod.bind(this);
-      return boundFn;
-    }
-  };
-  return adjDescriptor;
-}
+namespace App {
 
 // Component Base Class
 abstract class Component<T extends HTMLElement, U extends HTMLElement> {
@@ -322,6 +213,7 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
   }  
 }
 
-const prjInput = new ProjectInput();
-const activePrjList = new ProjectList('active');
-const finishedPrjList = new ProjectList('finished');
+  new ProjectInput();
+  new ProjectList('active');
+  new ProjectList('finished');
+}
