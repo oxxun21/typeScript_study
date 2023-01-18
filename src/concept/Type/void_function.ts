@@ -64,3 +64,7 @@ addAndHandle(10, 20, (result) => {      // (parameter) result: number , 매개�
     console.log(result);
     // return result;   "cb: (num: number) => void" 리턴 값을 void로 지정해놨기 때문에 반환 값은 없음
 });
+
+// call signatures
+type Add = (a: number, b: number) => number;
+const add4:Add = (a, b) => a + b;
