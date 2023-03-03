@@ -5,12 +5,6 @@
 진행 강의 : [Typescript :기초부터 실전형 프로젝트까지 with React + NodeJS](https://www.udemy.com/course/best-typescript-21/) with udemy
 
 ## Drag & Drop 구현
-<span align="left"><img src="https://user-images.githubusercontent.com/98699927/210951931-56738c1c-a777-46d0-ab1f-65d62b1a31af.jpg" width=400 height=380></span>
-<span align="right"><img src="https://user-images.githubusercontent.com/98699927/210952506-f187913a-0fca-4773-b70f-284d1489ee42.jpg" width=400 height=380></span>
-
-<span align="left"><img src="https://user-images.githubusercontent.com/98699927/210952510-788fdfaa-92cf-4462-afea-48b607b4fdfb.jpg" width=400 height=380></span>
-<span align="right"><img src="https://user-images.githubusercontent.com/98699927/210952514-ca5485ba-553c-45ed-87a0-ff9a7251feb3.jpg" width=400 height=380></span>
-
 <ul>
   <li>타입스크립트의 여러 타입</li>
   <li>DOM 요소 선택 및 상호작용</li>
